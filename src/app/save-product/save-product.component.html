@@ -1,0 +1,52 @@
+<h3 style="text-align: center; font-weight: bold;">Save Product Form</h3>
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="form" (submit)="onSaveProduct()"  *ngIf="!isLoading">
+        <mat-form-field>
+            <input
+            matInput
+            type ="text"
+            name = "name"
+            formControlName="name"
+            required
+            placeholder= "Product Name">
+            <mat-error *ngIf="form.get('name').invalid">Please Enter Valid Name</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+            matInput
+            type ="text"
+            name = "description"
+            formControlName="description"
+            required
+            placeholder= "Description">
+            <mat-error *ngIf="form.get('description').invalid">Please Enter Valid Description</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+            matInput
+            type ="text"
+            name = "category"
+            formControlName="category"
+            required
+            placeholder= "Category">
+            <mat-error *ngIf="form.get('category').invalid">Please Enter Valid Category</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+            matInput
+            type ="text"
+            name = "units"
+            formControlName="units"
+            required
+            placeholder= "Units">
+            <mat-error *ngIf="form.get('units').invalid">Please Enter Valid Units</mat-error>
+          </mat-form-field>
+         
+          <button mat-raised-button
+          color="accent"
+          type="submit">Save Product</button>
+    </form>
+  
+  </mat-card>
+  

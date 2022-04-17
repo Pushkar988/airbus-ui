@@ -1,0 +1,58 @@
+<div class="upper">
+  <mat-form-field><input matInput type="text" name="Search" placeholder="Search" (input)="searchByName($event.target.value)"></mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Category</mat-label>
+    <mat-select (selectionChange)="getByCategory($event)">
+      <mat-option *ngFor="let element of mySet" [value]="element">
+        {{element}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button color="primary" type="submit"  [routerLink]="['/add']" routerLinkActive="router-link-active">Add Product</button>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef bold> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef bold> Product Category </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef bold> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="descriptions">
+    <th mat-header-cell *matHeaderCellDef bold> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="units">
+    <th mat-header-cell *matHeaderCellDef bold> Units </th>
+    <td mat-cell *matCellDef="let element"> {{element.units}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Edit">
+    <th mat-header-cell *matHeaderCellDef bold></th>
+    <td mat-cell *matCellDef="let element">  <button mat-raised-button
+      color="primary"
+      type="submit" [routerLink]="['/edit/',element?.id]" routerLinkActive="router-link-active">Edit</button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

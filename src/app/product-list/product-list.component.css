@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+input {
+  width: 100%;
+}
+:host {
+  display: block;
+  margin: 10%;
+  margin-top: 8% !important;
+}
+th {
+  background-color: #1b6a6b;
+  color: white;
+}
+
+table {
+  /* row spacing / margin */
+  border-spacing: 0 8px !important;
+}
+
+mat-form-field {
+  margin-left: 2%;
+  height: 50%;
+}
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
